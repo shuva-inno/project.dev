@@ -1,0 +1,12 @@
+#Options +FollowSymLinks
+#RewriteEngine on
+Redirect 301 /a1.html http://mysite1.local/a2.html
+Redirect 301 /a3.html http://mysite2.local/b3.html
+Redirect 301 /b2.html http://www.innoraft.com/
+
+#RewriteRule ^mysite1.local/a1\.html$ mysite1.local/a2.html[R=301,L]
+
+  
+#RewriteRule ^([A-Za-z0-9-]+).local/([A-Za-z0-9-]+).html$ mysite1.local/a2.html
+
+#RewriteRule ^([A-Za-z0-9-]+).local/([A-Za-z0-9-]+).html$ mysite2.local/b3.html [NC,L]
