@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>InnoTraining</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+		<script type="text/javascript">
+		function valid_login(){
+			var x= document.forms["login_form"]["uname"].value;
+			var y= document.forms["login_form"]["pwd"].value;
+			if (x == "admin" && y == "virus.exe") {
+				alert("Welcome Admin");
+				return true;
+			}
+			else{
+				alert("Enter correct username and password!!!");
+				return false;
+			}
+		}
+		</script>
+	</head>
+	<body class="bod">
+		<div class="maincol">
+			<img src="images/img1">
+			<div class="leftcol">Inno</div>
+			<div class="midcol">Trainning</div>
+			<div class="rightcol">
+				<a href="http://project.dev/">REGISTER</a>
+			</div>
+		</div>
+		<div align="center" class="main_bod">
+			<h1>Login</h1>
+			<form onsubmit=" return valid_login()" name="login_form" action="http://project.dev/logged_in.html" method="post">		
+				<input type="text" name="uname" placeholder="Type in your username"><br><br>
+				<input type="password" name="pwd" placeholder="Type in your password"><br><br>
+				<input type="submit" value="Login" class="submit">
+			</form>
+		</div>
+	</body>
+</html>
