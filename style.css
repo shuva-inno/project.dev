@@ -30,6 +30,12 @@
   padding-top: 55px;
   font-size: 25px;
 }
+.error_disp{
+  font-size: 20px;
+}
+.error_disp1{
+  font-size: 20px;
+}
 .disp_name{
   color: #000;
   background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#FFCC00),color-stop(100%,#FFDF5F));
@@ -66,47 +72,43 @@
 .user_list_box{
   background-color: #8C6ACF;
   width: 1000px;
-  height: 200px;
   border-radius: 8px;
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: left;
   font-size: 20px;
+  overflow: hidden;
 }
 .list_left{
-  padding-top: 10px;
+  padding: 10px 0px 10px 30px;
   width: 50%;
   float: left;
-  padding-left: 29px;
 }
 .list_center{
-  padding-left: 228px;
+  padding-left: 188px;
 }
 .list_right{
   width: 80%;
   padding-top: 45px;
 }
 .disp_uname{
-  width: 35%;
+  width: 30%;
   padding-left: 30px;
   float: left;
   font-family: serif;
 }
 .disp_email{
-  width: 60%;
+  width: 50%;
   float: left;
   font-family: serif;
 }
 .view{
   float: right;
-  padding-right: 10px;
-  text-decoration: none;
+  text-decoration: underline;
   font: menu;
   display: inline-block;
-  background: ButtonFace;
   color: ButtonText;
-  border-style: solid;
   border-width: 5px;
-  margin-right: 10px;
+  margin-right: -170px;
   border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
 }
 h1{

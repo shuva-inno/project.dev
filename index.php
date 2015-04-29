@@ -12,7 +12,6 @@
 				var y= document.forms["register"]["email"].value;
 				var z= document.forms["register"]["pwd"].value;
 				var pattern= "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
-				//var fieldLength = document.getElementById('no').value.length;
 				if (x == null || x == "" || y == null || y == "" || z == null || z == "") {
 					alert("Please fill the necessary details");
 					return false;
@@ -21,16 +20,20 @@
 					alert("Please check your entered phone number");
 					return false;
 				};
-				/*if (y.pattern) {
-					return true;
-				}
-				else{
-					alert("Please enter a valid e-mail id");
-					return false;
-				}*/
 			}
 		</script>
 	</head>
+	<?php
+		session_start(); 
+		if(isset($_SESSION["id"]))
+		{
+			session_destroy();
+			session_unset();
+			header('location: index.php');
+		}
+		else
+		{
+	?>
 	<body class="bod">
 		<div class="maincol">
 			<img src="images/img1">
@@ -53,4 +56,5 @@
 			</form>
 		</div>
 	</body>
+	<?php } ?>
 </html>

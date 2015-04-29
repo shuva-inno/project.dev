@@ -15,7 +15,7 @@
 	$pwd = mysqli_real_escape_string($conn, $pwd);
 	$pwd = md5($pwd);
 
-	$query="SELECT user_type, id, email, gender, ph_no FROM project WHERE name= '$name' and pwd= '$pwd'";
+	$query="SELECT user_type, fname, id, email, gender, ph_no FROM project WHERE name= '$name' and pwd= '$pwd'";
 	
 	$result=mysqli_query($conn, $query);
 	
@@ -24,8 +24,10 @@
 		if($count == 1){
 				while ($row= $result->fetch_assoc())
 				{
+					unset($_SESSION['errMsg']);
 					$user_type= $row["user_type"];
 					$id= $row["id"];
+					$_SESSION["fname"]= $row["fname"];
 					$_SESSION["email"]= $row["email"];
 					$_SESSION["gender"]= $row["gender"];
 					$_SESSION["phone"]= $row["ph_no"];	
@@ -36,16 +38,16 @@
 
 			if($user_type == 'admin')
 			{
-				header("Location: user_list.php?ID=". $id);
+				header("Location: user_list.php");
 			}
 			else
 			{
-				header("Location: logged_in.php?ID=". $id);
+				header("Location: logged_in.php");
 			}
 		}
 	else{
-		$_SESSION['errMsg'] = "Invalid username or password";
-		header('Location: login.php');
+			$_SESSION['errMsg'] = "Invalid username or password";
+			header('Location: login.php');
 	}
 	mysqli_close($conn);
 ?>

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -17,6 +16,17 @@
 		}
 		</script>
 	</head>
+	<?php
+		session_start(); 
+		if(isset($_SESSION["id"]) || isset($_SESSION["email"]))
+		{
+			session_destroy();
+			session_unset();
+			echo "Access Denied";
+		}
+		else
+		{
+	?>
 	<body class="bod">
 		<div class="maincol">
 			<img src="images/img1">
@@ -26,9 +36,9 @@
 				<a href="http://project.dev/">REGISTER</a>
 			</div>
 		</div>
-		<div align="center" class="main_bod" id="errMsg">
+		<div align="center" class="main_bod">
 			<h1>Login</h1>
-			<?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?>
+			<span class="error_disp"><?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?></span>
 			<form onsubmit=" return valid_login()" name="login_form" action="loginuser.php" method="post">		
 				<input type="text" name="uname" placeholder="Type in your username"><br><br>
 				<input type="password" name="pwd" placeholder="Type in your password"><br><br>
@@ -36,4 +46,5 @@
 			</form>
 		</div>
 	</body>
+	<?php } ?>
 </html>
